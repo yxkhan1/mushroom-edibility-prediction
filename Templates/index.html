@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Mushroom Edibility Prediction</h1>
+     <p>Please use the key letter given in the Attribute information below</p>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="POST","GET">
+    	<input type="text" name="gill-size" placeholder="odor" required="required" />
+        <input type="text" name="odor" placeholder="gill-size" required="required" />
+		<input type="text" name="bruises" placeholder="bruises" required="required" />
+		<input type="text" name="ring-type" placeholder="gill-color" required="required" />
+        <input type="text" name="gill-spacing" placeholder="gill-spacing" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+     <h3>{{ prediction_text }}</h3>
+
+ </div>
+<h2>Description</h2>
+<p>The hypothetical samples corresponding to 23 species of gilled mushrooms in the Agaricus and Lepiota Family Mushroom (1981).
+    Each species is labelled as either definitely edible or definitely poisonous</p>
+
+<h4>Attribute Information</h4>
+<ul>
+    <li>odor: almond=a,anise=l,creosote=c,fishy=y,foul=f,musty=m,none=n,pungent=p,spicy=s</li>
+    <li>gill-size: broad=b,narrow=n</li>
+    <li>bruises: bruises=t,no=f</li>
+    <li>gill-color: black=k,brown=n,buff=b,chocolate=h,gray=g,green=r,orange=o,pink=p,purple=u,red=e,white=w,yellow=y</li>
+    <li>gill-spacing: close=c,crowded=w,distant=d</li>
+</ul>
+
+</body>
+</html>
